@@ -59,6 +59,15 @@ def moveObject(obj,x,y,vx,vy):
 
 #check Collision
 def checkCollision(obj,x=0,y=0,vx=0,vy=0,Sx=128,Sy=64):
+        for i in obj:
+        a=i
+    while x+vx<127-len(a) and y+vy<63-len(obj):
+        displayObject(obj,x,y)
+        time.sleep(0.05)
+        eraseObject(obj,x,y)
+        x=x+vx
+        y=y+vy
+        displayObject(obj,x,y)
         if x+vx>=Sx-len(a):x=Sx-len(a)-vx
         if y+vy>=Sy-len(obj):y=Sy-len(obj)-vy
         if x<=0:x=0
